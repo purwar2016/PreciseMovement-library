@@ -187,7 +187,7 @@ void PreciseMover::twist(double angle) {
     double currentAngle = startAngle;
 
     //setpoint_TW = angle;
-    setpointTW = 15; // 15 RPM target angular velocity
+    setpointTW = TARGET_TWIST_OMEGA; // 15 RPM target angular velocity
     double angleError = angle - (currentAngle - startAngle); // (target angle) - (change in angle)
 
     // abs function on Arduino is only defined for integers! Using it will yield a bug.
