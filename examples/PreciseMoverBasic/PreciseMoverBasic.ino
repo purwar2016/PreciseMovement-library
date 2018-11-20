@@ -36,8 +36,8 @@ const int BLUETOOTH_RX = 7;
 // =======================================================================================================
 
 // You can select any length unit as long as all three below have same untis.
-const double RADIUS = 29; // Radius of the wheel of the robot in mm
-const double LENGTH = 102; // Distance from the left wheel to right wheel in mm
+const double RADIUS = 0; // Radius of the wheel of the robot in mm
+const double LENGTH = 0; // Distance from the left wheel to right wheel in mm
 
 // =======================================================================================================
 // ========== PID PARAMETERS =============================================================================
@@ -50,8 +50,7 @@ const double LENGTH = 102; // Distance from the left wheel to right wheel in mm
  *        Make sure that the twisting angular velocity is not too fast as this may lead to overshoot.
  *        Note that with just the KP_TW, the TARGET_TWIST_OMEGA will not be reached, but this is not necessary
  *        since we only need it to twist at a slow speed not at a specific speed.
- *        If you need it so that the TARGET_TWIST_OMEGA is precisely reached, you will need to tune the KI_TW as well.
- * Tuning the derivative parameters is not recommended.
+ *        If you want it so that the TARGET_TWIST_OMEGA is precisely reached, you will need to tune the KI_TW as well.
  */
 
 // PID parameters for pure pursuit (path following and going straight)
@@ -227,6 +226,6 @@ void loop() {
     delay(2000);
     mover.twist(-90); // Twist 90 deg CW
     delay(2000);
-    mover.forward(711); //Move forward 28 in
+    mover.forward(1000); //Move forward 1 meter
     delay(2000);
 }
