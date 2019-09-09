@@ -9,7 +9,8 @@ The library also features methods to move the robot in specified movements: forw
 The library was developed in the Computer Aided Design and Innovation Lab at Stony Brook University.
 
 ## Website
-[Homepage](https://sites.google.com/stonybrook.edu/premo/) 
+[Homepage](https://sites.google.com/stonybrook.edu/premo/)
+
 [Tutorials](https://sites.google.com/stonybrook.edu/premo/tutorials?authuser=0)
 
 ## Caution
