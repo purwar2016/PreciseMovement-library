@@ -225,7 +225,64 @@ void pathFollowing() {
 }
 
 void handleSteering() {
+  // THROTTLE AND STEERING CONTROL
+  // throttle values after subtracting 49:
+  //     50 = max forward throttle
+  //     0 = no throttole
+  //     -49 = max reverse throttle
+  // steering values after subtracting 49:
+  //     50 = max right
+  //     0 = straight
+  //     -49 = max left
+  const int MIN_MOTOR_SPEED = 0;
   
+  int throttle = bluetooth.getThrottle() - 49;
+  int steering = bluetooth.getSteering() - 49;
+
+  if (throttle == 0) {
+    // If throttle is zero, don't move.
+    if (!premo.isFollowingPath()) {
+      stopMotors();
+    }
+    return;
+  }
+
+  // Map throttle to PWM range.
+  int mappedSpeed = map(abs(throttle), 0, 50, MIN_MOTOR_SPEED, 255);
+  // Map steering to PWM range.
+  int reducedSpeed = map(abs(steering), 0, 50, mappedSpeed, MIN_MOTOR_SPEED);
+
+  int leftMotorSpeed, rightMotorSpeed;
+  if (steering > 0) {
+    // Turn Right: reduce right motor speed
+    leftMotorSpeed = mappedSpeed;
+    rightMotorSpeed = reducedSpeed;
+  }
+  else {
+    // Turn Left: reduce left motor speed
+    leftMotorSpeed = reducedSpeed;
+    rightMotorSpeed = mappedSpeed;
+  }
+
+  // Determine forwards or backwards.
+  if (throttle > 0) {
+    // Forward
+    setLeftForward(leftMotorSpeed);
+    setRightForward(rightMotorSpeed);
+  }
+  else {
+    // Backward
+    setLeftReverse(leftMotorSpeed);
+    setRightReverse(rightMotorSpeed);
+  }
+
+  // Print Debug Info
+  //  Serial.print("throttle: "); Serial.print(throttle);
+  //  Serial.print("\tsteering: "); Serial.print(steering);
+  //  Serial.print("\tmappedSpeed: "); Serial.print(mappedSpeed);
+  //  Serial.print("\treducedSpeed: "); Serial.print(reducedSpeed);
+  //  Serial.print("\tleftMotorSpeed: "); Serial.print(leftMotorSpeed);
+  //  Serial.print("\trightMotorSpeed: "); Serial.println(rightMotorSpeed);
 }
 
 void loopStuff() {
