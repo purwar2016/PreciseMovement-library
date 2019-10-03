@@ -9,8 +9,8 @@
 class PurePursuit
 {
 public:
-    static const int MIN_PATH_LENGTH = 4;
-    static const float DEFAULT_INTERPOLATION_STEP = 20; // mm
+    static constexpr int MIN_PATH_LENGTH = 4;
+    static constexpr float DEFAULT_INTERPOLATION_STEP = 20; // mm
     PurePursuit(double* xPos, double* yPos, double *heading, double LOOK_AHEAD, unsigned long INTERVAL=50, int STOP_POINT=3);
     void start();
     bool checkStop();
@@ -38,7 +38,7 @@ private:
 
     // _stop is set to false after path following is complete.
     // _stop is false by default, and set to true when starting path following.
-	bool _stop;
+    bool _stop;
 
     // Computation interval for the pure pursuit algorithm.
     // See compute() method.
@@ -47,7 +47,7 @@ private:
     // Last time computer() method was ran in millisecond.
     unsigned long _prevComputeTime;
 
-    // Look ahead pure pursuit algoirthm parameter. 
+    // Look ahead pure pursuit algoirthm parameter.
     double _LOOK_AHEAD;
 
     // Pointer to the x coordinates of the path.
