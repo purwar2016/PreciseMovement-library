@@ -18,9 +18,9 @@ class CatmullRom;
 class PreMo
 {
 public:
-	static const int PID_SAMPLE_TIME = 15; // ms
-	static const int PID_MOTOR_OUTPUT_RANGE = 100; // -100 to 100
-	static const int DEFAULT_PATH_FOLLOW_SPEED = 85; // percent
+	static constexpr int PID_SAMPLE_TIME = 15; // ms
+	static constexpr int PID_MOTOR_OUTPUT_RANGE = 100; // -100 to 100
+	static constexpr int DEFAULT_PATH_FOLLOW_SPEED = 85; // percent
 
 	PreMo(float radius, float length, double kp, double kd, float kpMotor, float kiMotor,
 				MotorManager* motorManager, EncoderManager* encoderManager);
@@ -62,10 +62,10 @@ private:
 
 	EncoderManager* _encoderManager;
 
-	static const int _TEMP_PATH_LENGTH = 5;
+	static constexpr int _TEMP_PATH_LENGTH = 5;
 	float _tempPathX[_TEMP_PATH_LENGTH];
 	float _tempPathY[_TEMP_PATH_LENGTH];
-	static const float _END_STEP_ANGLE = 0.001 * PI/180; // rad
+	static constexpr float _END_STEP_ANGLE = 0.001 * PI/180; // rad
 	void computeCurvePathPoint(float* x, float* y, float theta, float turningRadius, float transformAngle, float isLeftTurn);
 
 	// Motors
@@ -81,7 +81,7 @@ private:
 	bool _isTwisting;
 	float _targetHeading;
 	bool _twistBothMotors;
-	static const float _TWIST_THRESHOLD_ANGLE = 2;
+	static constexpr float _TWIST_THRESHOLD_ANGLE = 2;
 
 	// PID
 	PID* _pid;
