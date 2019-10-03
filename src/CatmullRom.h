@@ -6,7 +6,7 @@ class CatmullRom
 {
 public:
     // This is the step size near the known data points. It isn't ideal since target step is defined, but it was a quick fix.
-    static const float END_STEP_SIZE = 1;
+    static constexpr float END_STEP_SIZE = 1;
 
     CatmullRom();
     CatmullRom(float* pathX, float* pathY, int numPoints);
