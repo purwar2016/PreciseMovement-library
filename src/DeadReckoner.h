@@ -9,7 +9,7 @@
 class DeadReckoner {
 
 public:
-	static const float RAD_PER_SEC_TO_RPM = 30.0 / PI;
+	static constexpr float RAD_PER_SEC_TO_RPM = 30.0 / PI;
 	DeadReckoner();
 	DeadReckoner(volatile unsigned long *left, volatile unsigned long *right,
 					int tpr, double r, double l, unsigned long ci=50);
