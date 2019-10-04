@@ -2,7 +2,6 @@
 #include "ArduinoBlue.h"
 #include "PreMo.h"
 #include <SoftwareSerial.h>
-#include <Arduino.h>
 
 
 // MOTOR PINS
