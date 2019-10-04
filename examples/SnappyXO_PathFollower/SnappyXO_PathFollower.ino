@@ -233,6 +233,7 @@ void handleSteering() {
   //     50 = max right
   //     0 = straight
   //     -49 = max left
+  
   const int MIN_MOTOR_SPEED = 0;
   
   int throttle = bluetooth.getThrottle() - 49;
@@ -244,6 +245,9 @@ void handleSteering() {
       stopMotors();
     }
     return;
+  }
+  else if (premo.isFollowingPath()) {
+    premo.stop();
   }
 
   // Map throttle to PWM range.
@@ -276,12 +280,12 @@ void handleSteering() {
   }
 
   // Print Debug Info
-  //  Serial.print("throttle: "); Serial.print(throttle);
-  //  Serial.print("\tsteering: "); Serial.print(steering);
-  //  Serial.print("\tmappedSpeed: "); Serial.print(mappedSpeed);
-  //  Serial.print("\treducedSpeed: "); Serial.print(reducedSpeed);
-  //  Serial.print("\tleftMotorSpeed: "); Serial.print(leftMotorSpeed);
-  //  Serial.print("\trightMotorSpeed: "); Serial.println(rightMotorSpeed);
+  // Serial.print("throttle: "); Serial.print(throttle);
+  // Serial.print("\tsteering: "); Serial.print(steering);
+  // Serial.print("\tmappedSpeed: "); Serial.print(mappedSpeed);
+  // Serial.print("\treducedSpeed: "); Serial.print(reducedSpeed);
+  // Serial.print("\tleftMotorSpeed: "); Serial.print(leftMotorSpeed);
+  // Serial.print("\trightMotorSpeed: "); Serial.println(rightMotorSpeed);
 }
 
 void loopStuff() {
