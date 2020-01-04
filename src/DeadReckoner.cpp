@@ -4,12 +4,12 @@
 DeadReckoner::DeadReckoner() { }
 
 DeadReckoner::DeadReckoner(volatile unsigned long *left, volatile unsigned long *right,
-							int tpr, double r, double l, unsigned long ci=50) {
+							int tpr, double r, double l, unsigned long ci) {
 	Init(left, right, tpr, r, l, ci);
 }
 
 void DeadReckoner::Init(volatile unsigned long *left, volatile unsigned long *right,
-							int tpr, double r, double l, unsigned long ci=50) {
+							int tpr, double r, double l, unsigned long ci) {
 	leftTicks = left;
 	rightTicks = right;
 	ticksPerRev = tpr;
