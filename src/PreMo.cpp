@@ -131,7 +131,7 @@ void PreMo::twistBothMotors(bool twistBothMotors)
 	_twistBothMotors = twistBothMotors;
 }
 
-void PreMo::twist(float targetHeading, int direction=TWIST_MIN)
+void PreMo::twist(float targetHeading, int direction)
 {
 	targetHeading = targetHeading - 360 * floor(targetHeading / 360);
 
