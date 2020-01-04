@@ -3,7 +3,7 @@
 #include <Arduino.h>
 
 // Constructor.
-PurePursuit::PurePursuit(double* xPos, double* yPos, double *heading, double LOOK_AHEAD, unsigned long INTERVAL=50, int STOP_POINT=3)
+PurePursuit::PurePursuit(double* xPos, double* yPos, double *heading, double LOOK_AHEAD, unsigned long INTERVAL, int STOP_POINT)
 {
 	_xPos = xPos;
 	_yPos = yPos;
